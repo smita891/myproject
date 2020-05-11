@@ -1,0 +1,141 @@
+import java.util.Scanner;
+
+public class Testarray {
+
+	public static void main(String[] args) {
+		
+		int arr[]=null;
+		int ch,n=0,s=0;
+		Scanner sc=new Scanner(System.in);
+		String str=null;
+
+		do
+		{
+			System.out.println("\n 1-create \n 2-display \n 3-search \n 4-insert \n 5-delete \n 6-sort ");
+			System.out.println("\n Enter you choice :");
+			ch=sc.nextInt();
+			
+			switch(ch)
+			{
+			case 1:
+				System.out.println("--------------------------------created----------------------------------");
+				arr=Operation.create();
+				System.out.println("\n array is created ");
+				break;
+			case 2:
+				System.out.println("--------------------------------display-------------------------------");
+				Operation.display(arr);
+				break;
+				
+			case 3:
+				System.out.println("-----------------------------searching--------------------------------");
+				/*System.out.println("\n Enter the search number ");
+				 s = sc.nextInt();
+				boolean b=Operation.search(s, n, arr);
+				if(b)
+				{
+					System.out.println("\n search number is found");
+				}
+				else
+				{
+					System.out.println("\n search number are not found :");
+				}*/
+				
+				
+				do
+				{
+					System.out.println("1-linear search \n2-binary search ");
+					ch=sc.nextInt();
+					switch(ch)
+					{
+					case 1:
+						System.out.println("\n enter the search number :");
+						s=sc.nextInt();
+						boolean flag=Operation.linear(s, n, arr);
+						if(flag)
+						{
+							System.out.println("\n element are found");
+							System.out.println(+s+ " number is found ");
+						}
+						else
+						{
+							System.out.println("\n elemnts are not found");
+						}
+						break;
+					
+					case 2:
+						System.out.println("\n enter the number to the search ");
+						s=sc.nextInt();
+						boolean p1=Operation.binary(n, s, arr);
+						if(p1)
+						{
+							System.out.println("\n element are found ");
+						}
+						break;
+					}
+					System.out.println("\n do you want to enter the binary and linear search :");
+					str=sc.next();
+				}while(str.equals("yes"));
+				
+				break;
+			
+			case 4:
+				System.out.println("----------------------insertion--------------------------------");
+				System.out.println("Enter the number and position to insert in array :");
+				int elm=sc.nextInt();
+				int pos=sc.nextInt();
+						Operation.insert(n, pos, arr,elm);
+				break;
+			
+			case 5:
+				System.out.println("---------------------deleting------------------------------");
+				System.out.println("\n enter the position to delete the element in array :");
+				 pos=sc.nextInt();
+				boolean b1=Operation.delete(n, pos, arr);
+				 if(b1)
+				 {
+					 System.out.println("\n element is deleted :");
+				 }
+				 break;
+				 
+				 
+			case 6:
+				System.out.println("------------------sorting-----------------------------");
+				do
+				{
+					System.out.println("1-insertion_sort \n2-selection_sort \n3-bubble sort ");
+					switch(ch)
+					{
+					case 1:
+						System.out.println("Enter the search number :");
+						s=sc.nextInt();
+						Operation.insertion_sort(arr, n,s);
+						break;
+					case 2:
+						System.out.println("Enter the search number :");
+						Operation.selection_sort(arr,n,s);
+						break;
+					case 3:
+						System.out.println("Enter the search number :");
+						s=sc.nextInt();
+						Operation.bubble_sort(arr,s,n);
+						break;
+						
+					}
+					System.out.println("\n do you want to enter sorting ");
+					str=sc.next();	
+				}while(str.equals("yes"));
+				break;
+				//Operation.sort(n, arr);
+				//break;
+			
+			}
+			
+			System.out.println("\n do you want to press yes/no:");
+			str=sc.next();
+		}while(str.equals("yes"));	
+		
+
+	}
+
+}
